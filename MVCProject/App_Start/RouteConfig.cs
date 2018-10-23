@@ -22,11 +22,7 @@ namespace MVCProject
                 url: "student/{id}",
                 defaults: new { controller = "Students", action = "Login", id = UrlParameter.Optional }
             );
-            routes.MapRoute(
-                name: "Department",
-                url: "department/{id}",
-                defaults: new { controller = "Departments", action = "Index", id = UrlParameter.Optional }
-            );
+            
             routes.MapRoute(
                name: "Faculty",
                url: "faculty/{id}",

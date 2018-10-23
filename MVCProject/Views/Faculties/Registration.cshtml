@@ -11,7 +11,7 @@
 {
     <div>
         Search By Name:@Html.TextBox("searchstring")
-        <input id="Submit1" type="submit" value="Filter" />
+        <input id="Submit1" type="submit" class="btn btn-primary" value="Filter" />
     </div>
 }
 <table class="table">
@@ -54,9 +54,7 @@
             @Html.DisplayFor(modelItem => item.TotalDays)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Stud_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Stud_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Stud_Id })
+            
         </td>
     </tr>
 }

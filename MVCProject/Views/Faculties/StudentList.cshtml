@@ -12,9 +12,9 @@
 @using (Html.BeginForm("StudentList", "Faculties"))
 {
     <div>
-        Search By Name:@Html.TextBox("searchstring")
-        <input id="Submit1" type="submit" value="Filter" />
-    </div>
+            Search By Name:@Html.TextBox("searchstring")
+            <input id="Submit1" class="btn btn-primary" type="submit" value="Filter" />
+        </div>
 }
 <table class="table">
     <tr>
@@ -58,21 +58,19 @@
             @Html.DisplayFor(modelItem => item.TotalDays)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Stud_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Stud_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Stud_Id })
+                
         </td>
     </tr>
 }
 
 </table>
-@*@using (Html.BeginForm("Logout", "Faculties", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Logout", "Faculties", FormMethod.Get, new { @class = "form-horizontal", role = "form" }))
     {
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Logout" class="btn btn-info" />
+                <input type="submit" value="Logout" class="btn btn-danger" />
             </div>
         </div>
-    }*@
+    }
 Page @(Model.PageCount < Model.PageNumber ? 0:Model.PageNumber) of @Model.PageCount
 @Html.PagedListPager(Model,page=>Url.Action("StudentList",new { page }))

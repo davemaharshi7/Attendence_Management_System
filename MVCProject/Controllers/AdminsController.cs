@@ -162,9 +162,19 @@ namespace MVCProject.Controllers
             if (Session["myid"] != null)
             {
                 db.Faculties.Add(faculty);
+
+                //try
+                //{
                 db.SaveChanges();
-                var fact = db.Faculties.ToList();
-                return View("Registration", fact);
+                    var fact = db.Faculties.ToList();
+                    return View("Registration", fact);
+                //}
+                //catch
+                //{
+                  //  ViewBag.RegMsg = "Please Enter Details correctly!";
+                   // return View("Admin_level1");
+                //}
+                
             }
             return RedirectToAction("Index", "Home");
         }

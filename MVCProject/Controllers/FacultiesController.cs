@@ -169,11 +169,19 @@ namespace MVCProject.Controllers
             if (Session["department_id"].ToString() != null && Session["myid"] != null)
             {
                 student.Dept_Id = Int32.Parse(Session["department_id"].ToString());
+                try
+                {
+                    db.Students.Add(student);
+                    db.SaveChanges();
 
-                db.Students.Add(student);
-                db.SaveChanges();
-                var stud = db.Students.ToList();
-                return View("Registration", stud);
+                    //var stud = db.Students.ToList();
+                    //return View("Registration", stud);
+                    return RedirectToAction("StudentList");
+                }
+                catch {
+                    ViewBag.RegMsg = "Please Enter Details Correctly";
+                    return View("Faculty_level1");
+                }
 
             }
             return RedirectToAction("Index", "Home");

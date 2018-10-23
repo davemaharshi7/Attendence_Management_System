@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin_level1</h2>
-
+<h2>Welcome Site Admin,</h2>
+@ViewBag.RegMsg
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm1">
@@ -14,8 +14,8 @@
             {
                 @Html.AntiForgeryToken()
                 @Html.ActionLink("List of Faculties","FacultyList")<br />
-                <h4>Add new Faculty.</h4>
                 <hr />
+                <h4>Add new Faculty:</h4>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.faculty.Name, new { @class = "col-md-2 control-label" })
@@ -55,7 +55,7 @@
             {
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Logout" class="btn btn-info" />
+                        <input type="submit" value="Logout" class="btn btn-danger" />
                     </div>
                 </div>
             }
